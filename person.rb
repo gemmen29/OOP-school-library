@@ -7,4 +7,5 @@ class Person
   end
 
   attr_reader :id, :name, :parent_permission
+  attr_writer :name, :age
 end
