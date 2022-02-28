@@ -18,6 +18,6 @@ student = Student.new(15, 'A', name: 'Student')
 p(student)
 puts(student.play_hooky)
 
-teacher = Student.new(15, 'CS', name: 'Teacher')
+teacher = Teacher.new(15, 'CS', name: 'Teacher')
 p(teacher)
 p(teacher.can_use_services?)
