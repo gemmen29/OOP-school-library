@@ -1,3 +1,5 @@
-class Teacher
-  
+require_relative './person'
+
+class Teacher < Person
+
 end
