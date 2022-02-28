@@ -2,7 +2,7 @@
 
 # OOP School
 
-> An app built with Ruby. It has a 'MyEnumerable' module that is included in 'MyList' class with filter, all and any feature methods.
+> An app was built with Ruby to teach us the main principles of OOP.
 
 ## Built With
 
