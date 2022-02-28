@@ -9,13 +9,16 @@ class Person
   attr_reader :id, :name, :parent_permission
   attr_writer :name, :age
 
-  def is_of_age?
-    if @age >= 18
-      true
+  private
+    def is_of_age?
+      if @age >= 18
+        true
+      end
+      false
     end
-    false
-  end
 
-
-  private :is_of_age?
+  public
+    def can_use_services?
+      is_of_age? || @parent_permission
+    end
 end
