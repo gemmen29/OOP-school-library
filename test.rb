@@ -21,3 +21,8 @@ puts(student.play_hooky)
 teacher = Teacher.new(15, 'CS', name: 'Teacher')
 p(teacher)
 p(teacher.can_use_services?)
+
+person4 = Person.new(18, name: 'hello world', parent_permission: false)
+p(person4)
+person4.validate_name
+p(person4.name)
