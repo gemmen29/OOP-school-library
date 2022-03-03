@@ -1,10 +1,11 @@
 class App
+  
   def run
-    options
+    receive_user_input
   end
 
   private
-    def options
+    def display_options
       puts "1 - List all books"
       puts "2 - List all people"
       puts "3 - Create a person"
@@ -12,6 +13,17 @@ class App
       puts "5 - Create a rental"
       puts "6 - List all rentals for a given person id"
       puts "7 - Exit"
+    end
+
+    def receive_user_input
+      display_options
+      user_input = gets.chomp
+      case user_input
+      when 1
+        
+      else
+        "You pressed a wrong option"
+      end      
     end
 end
 
