@@ -48,11 +48,7 @@ class App
             create_teacher
           end
         when 4
-          print "Title: "  
-          title = gets.chomp
-          print "Author: "
-          author = gets.chomp
-          @books << Book.new(title, author)
+          create_book
         when 7
           @exit = true
         else
@@ -83,6 +79,15 @@ class App
       specialization = gets.chomp
       @people << Teacher.new(age.to_i, specialization, name: name)
       puts "Teacher created successfully"
+    end
+
+    def create_book
+      print "Title: "  
+      title = gets.chomp
+      print "Author: "
+      author = gets.chomp
+      @books << Book.new(title, author)
+      puts "Book created successfully"
     end
 end
 
