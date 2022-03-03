@@ -1,3 +1,5 @@
+require_relative "./people"
+
 class App
   def initialize
     @books = []
@@ -31,6 +33,15 @@ class App
         @people.each do |person|
           puts "Name:#{person.name}, Age:#{person.author}"
         end
+      when 3  
+        puts "Age: "  
+        age = gets.chomp
+        puts "Name: "
+        name = gets.chomp
+        puts "Has parent permission? [Y/N]"
+        parent_permission = gets.chomp
+        parent_permission = (parent_permission.downcase == 'n') ? false : true
+        people << Person.new(age, name, parent_permission)
       else
         "You pressed a wrong option"
       end      
