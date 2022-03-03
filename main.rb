@@ -1,6 +1,7 @@
 class App
   def initialize
     @books = []
+    @people = []
   end
 
   def run
@@ -24,7 +25,11 @@ class App
       case user_input
       when 1
         @books.each do |book|
-          puts "#{book.title} #{book.author}"
+          puts "Title:#{book.title}, Author:#{book.author}"
+        end
+      when 2
+        @people.each do |person|
+          puts "Name:#{person.name}, Age:#{person.author}"
         end
       else
         "You pressed a wrong option"
