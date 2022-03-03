@@ -1,4 +1,5 @@
 require_relative "./person"
+require_relative "./book"
 
 class App
   def initialize
@@ -45,6 +46,12 @@ class App
           parent_permission = gets.chomp
           parent_permission = (parent_permission.downcase == 'n') ? false : true
           @people << Person.new(age, name: name, parent_permission: parent_permission)
+        when 4
+          print "Title: "  
+          title = gets.chomp
+          print "Author: "
+          author = gets.chomp
+          @books << Book.new(title, author)
         when 7
           @exit = true
         else
