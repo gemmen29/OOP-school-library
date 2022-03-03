@@ -31,13 +31,9 @@ class App
         user_input = gets.chomp
         case user_input.to_i
         when 1
-          @books.each do |book|
-            puts "Title: \"#{book.title}\", Author:#{book.author}"
-          end
+          display_list_of_books
         when 2
-          @people.each do |person|
-            puts "[#{person.class}] Name:#{person.name},ID: #{person.id} Age:#{person.age}"
-          end
+          display_list_of_person
         when 3
           print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
           option = gets.chomp
@@ -88,6 +84,18 @@ class App
       author = gets.chomp
       @books << Book.new(title, author)
       puts "Book created successfully"
+    end
+
+    def display_list_of_books
+      @books.each do |book|
+        puts "Title: \"#{book.title}\", Author:#{book.author}"
+      end
+    end
+
+    def display_list_of_person
+      @people.each do |person|
+        puts "[#{person.class}] Name:#{person.name},ID: #{person.id} Age:#{person.age}"
+      end
     end
 end
 
