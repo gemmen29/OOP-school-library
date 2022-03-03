@@ -6,6 +6,7 @@ class App
   def initialize
     @books = []
     @people = []
+    @rentals = []
     @exit = false
   end
 
@@ -45,6 +46,17 @@ class App
           end
         when 4
           create_book
+        when 5
+          puts 'Select a book from the following list by number'
+          display_list_of_books(5)
+          book_num = gets.chomp
+          puts 'Select a person from the following list by number (not id)'
+          display_list_of_person(5)
+          person_num = gets.chomp
+          print 'Date: '
+          date = gets.chomp
+          @rentals << Rental.new(date, @books[book_num.to_i], @people[person_num.to_i])
+          puts 'Rental created successfully'
         when 7
           @exit = true
         else
@@ -86,14 +98,20 @@ class App
       puts "Book created successfully"
     end
 
-    def display_list_of_books
-      @books.each do |book|
+    def display_list_of_books(from = 1)
+      @books.each_with_index do |book, index|
+        if from == 5
+          print "#{index}) "
+        end
         puts "Title: \"#{book.title}\", Author:#{book.author}"
       end
     end
 
-    def display_list_of_person
-      @people.each do |person|
+    def display_list_of_person(from = 2)
+      @people.each do |person, index|
+        if from == 5
+          print "#{index}) "
+        end
         puts "[#{person.class}] Name:#{person.name},ID: #{person.id} Age:#{person.age}"
       end
     end
