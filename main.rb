@@ -116,7 +116,7 @@ class App
       @rentals << Rental.new(date, @books[book_num.to_i], @people[person_num.to_i])
       puts 'Rental created successfully'
     else
-      puts "Please enter a valid book num or valid person num"
+      puts 'Please enter a valid book num or valid person num'
     end
   end
 
