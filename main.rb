@@ -1,4 +1,4 @@
-require_relative "./person"
+require_relative "./student"
 require_relative "./book"
 
 class App
@@ -38,14 +38,7 @@ class App
             puts "Name:#{person.name}, Age:#{person.age}"
           end
         when 3
-          print "Age: "  
-          age = gets.chomp
-          print "Name: "
-          name = gets.chomp
-          print "Has parent permission? [Y/N] "
-          parent_permission = gets.chomp
-          parent_permission = (parent_permission.downcase == 'n') ? false : true
-          @people << Person.new(age, name: name, parent_permission: parent_permission)
+
         when 4
           print "Title: "  
           title = gets.chomp
@@ -59,6 +52,17 @@ class App
         end
         break if @exit
       end      
+    end
+
+    def create_student
+      print "Age: "  
+      age = gets.chomp
+      print "Name: "
+      name = gets.chomp
+      print "Has parent permission? [Y/N] "
+      parent_permission = gets.chomp
+      parent_permission = (parent_permission.downcase == 'n') ? false : true
+      @people << Student.new(age.to_i, nil, name: name, parent_permission: parent_permission)
     end
 end
 
