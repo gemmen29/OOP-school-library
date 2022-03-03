@@ -1,4 +1,5 @@
 require_relative "./student"
+require_relative "./teacher"
 require_relative "./book"
 
 class App
@@ -35,10 +36,17 @@ class App
           end
         when 2
           @people.each do |person|
-            puts "Name:#{person.name}, Age:#{person.age}"
+            puts "[#{person.class}] Name:#{person.name},ID: #{person.id} Age:#{person.age}"
           end
         when 3
-
+          print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+          option = gets.chomp
+          case option.to_i
+          when 1
+            create_student
+          when 2
+            create_teacher
+          end
         when 4
           print "Title: "  
           title = gets.chomp
@@ -63,6 +71,7 @@ class App
       parent_permission = gets.chomp
       parent_permission = (parent_permission.downcase == 'n') ? false : true
       @people << Student.new(age.to_i, nil, name: name, parent_permission: parent_permission)
+      puts "Student created successfully"
     end
 
     def create_teacher
@@ -70,9 +79,10 @@ class App
       age = gets.chomp
       print "Name: "
       name = gets.chomp
-      print "specialization "
+      print "Specialization: "
       specialization = gets.chomp
       @people << Teacher.new(age.to_i, specialization, name: name)
+      puts "Teacher created successfully"
     end
 end
 
