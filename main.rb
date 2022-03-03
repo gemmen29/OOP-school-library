@@ -1,4 +1,4 @@
-require_relative "./people"
+require_relative "./person"
 
 class App
   def initialize
@@ -22,28 +22,31 @@ class App
     end
 
     def receive_user_input
-      display_options
-      user_input = gets.chomp
-      case user_input
-      when 1
-        @books.each do |book|
-          puts "Title:#{book.title}, Author:#{book.author}"
-        end
-      when 2
-        @people.each do |person|
-          puts "Name:#{person.name}, Age:#{person.author}"
-        end
-      when 3  
-        puts "Age: "  
-        age = gets.chomp
-        puts "Name: "
-        name = gets.chomp
-        puts "Has parent permission? [Y/N]"
-        parent_permission = gets.chomp
-        parent_permission = (parent_permission.downcase == 'n') ? false : true
-        people << Person.new(age, name, parent_permission)
-      else
-        "You pressed a wrong option"
+      loop do 
+        display_options
+        user_input = gets.chomp
+        case user_input
+        when 1
+          @books.each do |book|
+            puts "Title:#{book.title}, Author:#{book.author}"
+          end
+        when 2
+          @people.each do |person|
+            puts "Name:#{person.name}, Age:#{person.author}"
+          end
+        when 3  
+          puts "Age: "  
+          age = gets.chomp
+          puts "Name: "
+          name = gets.chomp
+          puts "Has parent permission? [Y/N]"
+          parent_permission = gets.chomp
+          parent_permission = (parent_permission.downcase == 'n') ? false : true
+          people << Person.new(age, name, parent_permission)
+        else
+          "You pressed a wrong option"
+        end 
+        break if true
       end      
     end
 end
