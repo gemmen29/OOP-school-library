@@ -112,8 +112,12 @@ class App
     person_num = gets.chomp
     print 'Date: '
     date = gets.chomp
-    @rentals << Rental.new(date, @books[book_num.to_i], @people[person_num.to_i])
-    puts 'Rental created successfully'
+    if book_num.to_i < @books.length && person_num.to_i < @people.length
+      @rentals << Rental.new(date, @books[book_num.to_i], @people[person_num.to_i])
+      puts 'Rental created successfully'
+    else
+      puts "Please enter a valid book num or valid person num"
+    end
   end
 
   def display_list_of_books(from = 1)
@@ -126,7 +130,7 @@ class App
   def display_list_of_person(from = 2)
     @people.each_with_index do |person, index|
       print "#{index}) " if from == 5
-      puts "[#{person.class}] Name:#{person.name}, ID: #{person.id} Age:#{person.age}"
+      puts "[#{person.class}] Name:#{person.name}, ID: #{person.id}, Age:#{person.age}"
     end
   end
 
