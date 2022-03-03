@@ -32,7 +32,7 @@ class App
         case user_input.to_i
         when 1
           @books.each do |book|
-            puts "Title:#{book.title}, Author:#{book.author}"
+            puts "Title: \"#{book.title}\", Author:#{book.author}"
           end
         when 2
           @people.each do |person|
@@ -52,7 +52,7 @@ class App
         when 7
           @exit = true
         else
-          "You pressed a wrong option"
+          puts "You pressed a wrong option"
         end
         break if @exit
       end      
