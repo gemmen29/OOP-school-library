@@ -64,6 +64,16 @@ class App
       parent_permission = (parent_permission.downcase == 'n') ? false : true
       @people << Student.new(age.to_i, nil, name: name, parent_permission: parent_permission)
     end
+
+    def create_teacher
+      print "Age: "  
+      age = gets.chomp
+      print "Name: "
+      name = gets.chomp
+      print "specialization "
+      specialization = gets.chomp
+      @people << Teacher.new(age.to_i, specialization, name: name)
+    end
 end
 
 def main
