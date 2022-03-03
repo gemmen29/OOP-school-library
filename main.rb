@@ -24,29 +24,30 @@ class App
     def receive_user_input
       loop do 
         display_options
+        print "Option: "
         user_input = gets.chomp
-        case user_input
+        case user_input.to_i
         when 1
           @books.each do |book|
             puts "Title:#{book.title}, Author:#{book.author}"
           end
         when 2
           @people.each do |person|
-            puts "Name:#{person.name}, Age:#{person.author}"
+            puts "Name:#{person.name}, Age:#{person.age}"
           end
-        when 3  
-          puts "Age: "  
+        when 3
+          print "Age: "  
           age = gets.chomp
-          puts "Name: "
+          print "Name: "
           name = gets.chomp
-          puts "Has parent permission? [Y/N]"
+          print "Has parent permission? [Y/N] "
           parent_permission = gets.chomp
           parent_permission = (parent_permission.downcase == 'n') ? false : true
-          people << Person.new(age, name, parent_permission)
+          @people << Person.new(age, name: name, parent_permission: parent_permission)
         else
           "You pressed a wrong option"
-        end 
-        break if true
+        end
+        break if false
       end      
     end
 end
