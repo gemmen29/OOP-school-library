@@ -57,6 +57,10 @@ class App
           date = gets.chomp
           @rentals << Rental.new(date, @books[book_num.to_i], @people[person_num.to_i])
           puts 'Rental created successfully'
+        when 6
+          print 'ID of person: '
+          person_id = gets.chomp
+          display_list_of_rental(person_id.to_i)
         when 7
           @exit = true
         else
@@ -108,11 +112,17 @@ class App
     end
 
     def display_list_of_person(from = 2)
-      @people.each do |person, index|
+      @people.each_with_index do |person, index|
         if from == 5
           print "#{index}) "
         end
-        puts "[#{person.class}] Name:#{person.name},ID: #{person.id} Age:#{person.age}"
+        puts "[#{person.class}] Name:#{person.name}, ID: #{person.id} Age:#{person.age}"
+      end
+    end
+
+    def display_list_of_rental(id = 1)
+      @rentals.select { |rental| rental.person.id == id }.each do |rental|
+        puts "Date:#{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
       end
     end
 end
