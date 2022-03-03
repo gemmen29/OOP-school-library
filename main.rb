@@ -1,5 +1,8 @@
 class App
-  
+  def initialize
+    @books = []
+  end
+
   def run
     receive_user_input
   end
@@ -20,7 +23,9 @@ class App
       user_input = gets.chomp
       case user_input
       when 1
-        
+        @books.each do |book|
+          puts "#{book.title} #{book.author}"
+        end
       else
         "You pressed a wrong option"
       end      
