@@ -4,6 +4,7 @@ class App
   def initialize
     @books = []
     @people = []
+    @exit = false
   end
 
   def run
@@ -44,10 +45,12 @@ class App
           parent_permission = gets.chomp
           parent_permission = (parent_permission.downcase == 'n') ? false : true
           @people << Person.new(age, name: name, parent_permission: parent_permission)
+        when 7
+          @exit = true
         else
           "You pressed a wrong option"
         end
-        break if false
+        break if @exit
       end      
     end
 end
